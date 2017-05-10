@@ -21,6 +21,7 @@ source 'https://rubygems.org'
  gem 'turbolinks'
  gem 'bootstrap'
  gem 'figaro'
+ gem 'pundit'
 
  group :development, :test do
    gem 'byebug'

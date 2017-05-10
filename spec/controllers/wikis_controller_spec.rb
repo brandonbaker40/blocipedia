@@ -36,13 +36,27 @@ RSpec.describe WikisController, type: :controller do
   # WikisController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  # describe "GET #index" do
+  #   it "assigns all wikis as @wikis" do
+  #     wiki = Wiki.create! valid_attributes
+  #     get :index, params: {}, session: valid_session
+  #     expect(assigns(:wikis)).to eq([wiki])
+  #   end
+  # end
+
   describe "GET #index" do
-    it "assigns all wikis as @wikis" do
-      wiki = Wiki.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(assigns(:wikis)).to eq([wiki])
+    it "returns http success" do
+      get :index
+      expect(response).to have_http_status(:success)
     end
+
+    #  it "assigns [wiki] to @wikis" do
+    #    get :index
+    #    #expect(assigns(:wikis)).to eq([wiki])
+    #    expect(response).to eq(@wiki)
+    #  end
   end
+
 
   describe "GET #show" do
     it "assigns the requested wiki as @wiki" do
