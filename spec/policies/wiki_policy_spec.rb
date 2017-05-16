@@ -1,28 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe WikiPolicy do
+describe WikiPolicy do
+  subject { described_class.new(user, wiki) }
 
-  let(:user) { User.new }
+  let(:wiki) { Wiki.create }
 
-  subject { described_class }
+  context 'being a standard user' do
+    let(:user) { User.create(role: :standard, email: 'standard@example.com', password: '123123standard') }
 
-  permissions ".scope" do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_actions([:index, :show, :new, :create, :edit, :update]) }
+    it { is_expected.to forbid_action(:destroy) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'being a premium user' do
+    let(:user) { User.create(role: :premium, email: 'premium@example.com', password: '123123premium') }
+
+    it { is_expected.to permit_actions([:index, :show, :new, :create, :edit, :update]) }
+    it { is_expected.to forbid_action(:destroy) }
   end
 
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
+  context 'being an admin user' do
+    let(:user) { User.create(role: :admin, email: 'admin@example.com', password: '123123admin') }
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    it { is_expected.to permit_actions([:index, :show, :new, :create, :edit, :update, :destroy]) }
   end
 end

@@ -32,3 +32,7 @@ source 'https://rubygems.org'
    gem 'factory_girl_rails'
    gem 'pry-rails'
  end
+
+ group :test do
+  gem 'pundit-matchers', '~> 1.2.3'
+end
