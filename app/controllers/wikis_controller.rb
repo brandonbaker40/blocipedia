@@ -1,7 +1,7 @@
 class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   # GET /wikis
   def index
     @wikis = Wiki.all
@@ -18,6 +18,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1/edit
   def edit
+    authorize @wiki
   end
 
   # POST /wikis
@@ -33,6 +34,7 @@ class WikisController < ApplicationController
 
   # PATCH/PUT /wikis/1
   def update
+    authorize @wiki
     if @wiki.update(wiki_params)
       redirect_to @wiki, notice: 'Wiki was successfully updated.'
     else
@@ -40,8 +42,10 @@ class WikisController < ApplicationController
     end
   end
 
-  # DELETE /wikis/1
+  #DELETE /wikis/1
   def destroy
+    @wiki = Wiki.find(params[:id])
+    authorize @wiki
     @wiki.destroy
     redirect_to wikis_url, notice: 'Wiki was successfully destroyed.'
   end
