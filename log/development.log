@@ -17472,3 +17472,227 @@ Processing by Devise::RegistrationsController#edit as HTML
   Rendered devise/registrations/edit.html.erb within layouts/application (16.5ms)
 Completed 200 OK in 54ms (Views: 50.5ms | ActiveRecord: 0.2ms)
   [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-05-22 17:18:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JuhffZ71Nshh8q8hAEkCcms185oXtodOfxw7QnaKcmMIaCsWfZ4re4Upr8vMWfWBIz17hvX9HS4VVCTge5P6Jg=="}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 579ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2017-05-22 17:18:42 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 352ms (Views: 351.4ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (4.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["role", 2], ["updated_at", "2017-05-22 21:19:11.643097"], ["id", 16]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/users/sign_in" for ::1 at 2017-05-22 17:19:15 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (12.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (56.4ms)
+Completed 200 OK in 100ms (Views: 89.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-05-22 17:19:27 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bcsQF5f/XdbE02fWz8EMX04MFAL01h5gNXvN4OmVEpRjuby8teaqPIiIBp/qfMCTSAI75L/F9tV3gdr7TcqEYg==", "user"=>{"email"=>"brbaker400@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "brbaker400@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-05-22 21:17:03.316966"], ["current_sign_in_at", "2017-05-22 21:19:27.606396"], ["sign_in_count", 3], ["updated_at", "2017-05-22 21:19:27.607499"], ["id", 16]]
+  [1m[35m (8.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 273ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/" for ::1 at 2017-05-22 17:19:27 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wikis/new" for ::1 at 2017-05-22 17:19:31 -0400
+Processing by WikisController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered wikis/_form.html.erb (5.4ms)
+  Rendered wikis/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 59ms (Views: 43.8ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-05-22 17:19:46 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3M0ZmpOoeculJGNL8bAIvvCrpiBhcuwjCcpDadbyT9OfcXF7uX/D6gD1LVtk5DML7Kyn14XhU5OnCx+ww3wNg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-05-22 17:19:46 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 25ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["role", 0], ["updated_at", "2017-05-22 21:20:04.257171"], ["id", 16]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/users/sign_in" for ::1 at 2017-05-22 17:20:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (10.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 65ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-05-22 17:20:17 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+5X+HYE3Kv4Ln4HFwRX9XE+QKXkqcIIkUpE/aRzZKs2I0xZlXoi+oWZZHHS3Jkvgjf3bFJyifd/vWQvBl33hWw==", "user"=>{"email"=>"brbaker400@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "brbaker400@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-05-22 21:19:27.606396"], ["current_sign_in_at", "2017-05-22 21:20:17.345544"], ["sign_in_count", 4], ["updated_at", "2017-05-22 21:20:17.346932"], ["id", 16]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 201ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2017-05-22 17:20:17 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/wikis/new" for ::1 at 2017-05-22 17:20:22 -0400
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  Rendered wikis/_form.html.erb (3.2ms)
+  Rendered wikis/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 116ms (Views: 113.4ms | ActiveRecord: 0.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["role", 1], ["updated_at", "2017-05-22 21:20:45.451216"], ["id", 16]]
+  [1m[35m (10.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-05-22 17:20:50 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1+lm4dx+pCl9+2vEjn/4bv3SSpHyFGjMWm1wJRYOxddBkah3CkRLejgSJ5NLyNF+ME51q7Sh/1WHjzD2TyMiAg=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-05-22 17:20:50 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 52ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-05-22 17:20:51 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (11.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 74ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-05-22 17:20:59 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WxSOR8cX+L64xLTnRqDAOPVPPbvmYko7GO/LpTVafZelqtRkOTTsU0z/IH2wlqYd3uYW2F4S3WNc1jZKrAEljw==", "user"=>{"email"=>"brbaker400@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (8.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "brbaker400@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-05-22 21:20:17.345544"], ["current_sign_in_at", "2017-05-22 21:20:59.788820"], ["sign_in_count", 5], ["updated_at", "2017-05-22 21:20:59.790081"], ["id", 16]]
+  [1m[35m (8.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 227ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/" for ::1 at 2017-05-22 17:20:59 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+Completed 200 OK in 31ms (Views: 30.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/wikis/new" for ::1 at 2017-05-22 17:21:03 -0400
+Processing by WikisController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered wikis/_form.html.erb (3.7ms)
+  Rendered wikis/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 41ms (Views: 38.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/wikis/new" for ::1 at 2017-05-22 17:21:28 -0400
+Processing by WikisController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  Rendered wikis/_form.html.erb (141.1ms)
+  Rendered wikis/new.html.erb within layouts/application (143.1ms)
+Completed 200 OK in 241ms (Views: 208.5ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-05-22 17:21:53 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0Woba53kWcDeasEPM/DsqumOBQR6704tE8UB5/fhmjOGpKPXSR48qSwiDdURu3jQPO826y8sw+yEVjDRMVD1+A=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-05-22 17:21:53 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 67ms (Views: 66.2ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["role", 0], ["updated_at", "2017-05-22 21:22:05.357394"], ["id", 16]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/users/sign_in" for ::1 at 2017-05-22 17:22:07 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (7.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 105ms (Views: 102.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-05-22 17:22:15 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uI6hffYmb4BgZazMEArsiBvl6RkqINT1J+3iWJo5WJS2HMhk1NFPvCzi+NJNw38c6JbPJA89ZxJTKM0/et3z4Q==", "user"=>{"email"=>"brbaker400@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "brbaker400@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-05-22 21:20:59.788820"], ["current_sign_in_at", "2017-05-22 21:22:15.533439"], ["sign_in_count", 6], ["updated_at", "2017-05-22 21:22:15.534402"], ["id", 16]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 195ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2017-05-22 17:22:15 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/wikis/new" for ::1 at 2017-05-22 17:22:20 -0400
+Processing by WikisController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered wikis/_form.html.erb (5.2ms)
+  Rendered wikis/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 88ms (Views: 84.2ms | ActiveRecord: 0.2ms)
