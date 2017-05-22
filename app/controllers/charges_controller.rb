@@ -1,8 +1,5 @@
 class ChargesController < ApplicationController
 
-  #@amount = 15_00 # $15.00 in pennies to upgrade to Premium
-  #@amount = 1500 # $15.00 in pennies to upgrade to Premium
-
   def new
    @stripe_btn_data = {
      key: "#{ Rails.configuration.stripe[:publishable_key] }",
@@ -29,6 +26,7 @@ class ChargesController < ApplicationController
        currency: 'usd'
      )
 
+     current_user.update(role: 1)
      flash[:notice] = "You've upgraded your account to Premium, #{current_user.email}!"
      redirect_to root_path # redirects to home page
 
