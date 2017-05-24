@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-
+  def downgrade
+    current_user.update_attributes(role: 0) # 0 is default standard role
+    current_user.wikis.update_all(private: false)
+    redirect_to edit_user_registration_path
+  end
 
   #before_action :authenticate_user!
 end

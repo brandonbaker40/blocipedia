@@ -33,13 +33,9 @@ class UsersController < ApplicationController
   end
 
   #downgrade from premium to standard
-  def downgrade
-    current_user.update_attributes(role: 0) # 0 is default standard role
-    redirect_to edit_user_registration_path
-  end
 
   # def downgrade
-  #   current_user.update(role: 0) # 0 is default standard role
+  #   current_user.update_attributes(role: 0) # 0 is default standard role
   #   redirect_to edit_user_registration_path
   # end
 
