@@ -9,6 +9,7 @@ class WikisController < ApplicationController
 
   # GET /wikis/1
   def show
+    @wikis = Wiki.find(params[:id])
   end
 
   # GET /wikis/new

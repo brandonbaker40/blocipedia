@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   #after_action :verify_authorized
 
   #rescue_from UserPolicy::AuthorizationError, with: :user_not_authorized
