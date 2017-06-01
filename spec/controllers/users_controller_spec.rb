@@ -58,7 +58,7 @@ end
 
 ###### STANDARD USER ########
   describe "standard user sign in" do
-    login_premium_user
+    login_standard_user
 
     it "should have a current_user" do
       expect(subject.current_user).to_not eq(nil)
