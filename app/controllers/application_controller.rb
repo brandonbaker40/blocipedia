@@ -13,5 +13,10 @@ class ApplicationController < ActionController::Base
     redirect_to edit_user_registration_path
   end
 
+  def user_not_authorized
+    flash[:alert] = 'You are not authorized to do that.'
+    redirect_to (request.referrer || root_path)
+  end
+
   #before_action :authenticate_user!
 end

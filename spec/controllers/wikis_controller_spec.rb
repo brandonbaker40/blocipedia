@@ -4,7 +4,9 @@ require 'rails_helper'
 RSpec.describe WikisController, type: :controller do
 
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { title: 'MyTitle',
+      body: 'MyBody',
+      private: false }
   }
 
   let(:invalid_attributes) {
@@ -52,74 +54,47 @@ RSpec.describe WikisController, type: :controller do
     end
   end
 
-  #
-  #   context "with invalid params" do
-  #     it "assigns a newly created but unsaved wiki as @wiki" do
-  #       post :create, params: {wiki: invalid_attributes}, session: valid_session
-  #       expect(assigns(:wiki)).to be_a_new(Wiki)
-  #     end
-  #
-  #     it "re-renders the 'new' template" do
-  #       post :create, params: {wiki: invalid_attributes}, session: valid_session
-  #       expect(response).to render_template("new")
-  #     end
-  #   end
-  # end
-  #
-  # describe "PUT #update" do
-  #   context "with valid params" do
-  #     let(:new_attributes) {
-  #       skip("Add a hash of attributes valid for your model")
-  #     }
-  #
-  #     it "updates the requested wiki" do
-  #       wiki = Wiki.create! valid_attributes
-  #       put :update, params: {id: wiki.to_param, wiki: new_attributes}, session: valid_session
-  #       wiki.reload
-  #       skip("Add assertions for updated state")
-  #     end
-  #
-  #     it "assigns the requested wiki as @wiki" do
-  #       wiki = Wiki.create! valid_attributes
-  #       put :update, params: {id: wiki.to_param, wiki: valid_attributes}, session: valid_session
-  #       expect(assigns(:wiki)).to eq(wiki)
-  #     end
-  #
-  #     it "redirects to the wiki" do
-  #       wiki = Wiki.create! valid_attributes
-  #       put :update, params: {id: wiki.to_param, wiki: valid_attributes}, session: valid_session
-  #       expect(response).to redirect_to(wiki)
-  #     end
-  #   end
-  #
-  #   context "with invalid params" do
-  #     it "assigns the wiki as @wiki" do
-  #       wiki = Wiki.create! valid_attributes
-  #       put :update, params: {id: wiki.to_param, wiki: invalid_attributes}, session: valid_session
-  #       expect(assigns(:wiki)).to eq(wiki)
-  #     end
-  #
-  #     it "re-renders the 'edit' template" do
-  #       wiki = Wiki.create! valid_attributes
-  #       put :update, params: {id: wiki.to_param, wiki: invalid_attributes}, session: valid_session
-  #       expect(response).to render_template("edit")
-  #     end
-  #   end
-  # end
-  #
-  # describe "DELETE #destroy" do
-  #   it "destroys the requested wiki" do
-  #     wiki = Wiki.create! valid_attributes
-  #     expect {
-  #       delete :destroy, params: {id: wiki.to_param}, session: valid_session
-  #     }.to change(Wiki, :count).by(-1)
-  #   end
-  #
-  #   it "redirects to the wikis list" do
-  #     wiki = Wiki.create! valid_attributes
-  #     delete :destroy, params: {id: wiki.to_param}, session: valid_session
-  #     expect(response).to redirect_to(wikis_url)
-  #   end
+  # describe "update a wiki" do
+  #   it ""
   # end
 
+  describe "PUT update" do
+    let(:new_attributes) { FactoryGirl.attributes_for(:wiki, title: 'New Title', body: 'New Body', private: false) }
+
+    it "updates the requested wiki" do
+      wiki = @user.wikis.create! valid_attributes
+      sign_in @user
+      put :update, {:id => wiki.to_param, :wiki => new_attributes}, valid_session
+      wiki.reload
+      expect(assigns(:wiki).attributes['title']).to match(new_attributes[:title])
+      expect(response).to redirect_to(wiki_path)
+    end
+  end
+
+  describe "POST create a new wiki" do
+    it "successfully creates a new wiki" do
+      wiki_params = FactoryGirl.attributes_for(:wiki)
+      expect { post :create, :wiki => wiki_params }.to change(Wiki, :count).by(1)
+    end
+    it "adds @wikis to end of @wikis" do
+      expect(@wiki).to eq(Wiki.last)
+    end
+    it "should be a public wiki" do
+      expect(@wiki.private).to eq(false)
+    end
+  end
+
+  describe "GET #show" do
+    it "assigns the requested wiki as @wiki" do
+      get :show, id: @wiki.id
+      expect(assigns(@wiki)).to eq(@wikis)
+    end
+  end
+
+  describe "DELETE #destroy wiki user owns" do
+    it "should delete the wiki" do
+      expect { delete :destroy, id: @wiki.id }.to change(Wiki, :count).by(-1)
+      expect(response).to redirect_to(wikis_url)
+    end
+  end
 end

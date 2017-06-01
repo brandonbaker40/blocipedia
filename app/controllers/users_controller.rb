@@ -44,10 +44,5 @@ class UsersController < ApplicationController
   def secure_params
     params.require(:user).permit(*policy(@user || User).permitted_attributes)
   end
-
-  def user_not_authorized
-    flash[:alert] = $!
-    redirect_to (request.referrer || root_path)
-  end
-
+  
 end

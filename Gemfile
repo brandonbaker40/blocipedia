@@ -23,6 +23,7 @@ source 'https://rubygems.org'
  gem 'figaro'
  gem 'pundit'
  gem 'stripe'
+ gem 'redcarpet'
 
  group :development, :test do
    gem 'byebug'
