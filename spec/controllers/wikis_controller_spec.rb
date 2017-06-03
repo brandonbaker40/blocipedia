@@ -19,6 +19,17 @@ RSpec.describe WikisController, type: :controller do
     @user = User.create!(email: 'standard@bloc.io', password: 'standard1234', role: 0)
     sign_in @user
     @wiki  = Wiki.create!(title: 'title', body: 'body', private: false, user: @user)
+
+    ####
+    @premium_user = User.create!(email: 'premium@bloc.io', password: 'premium 1234', role: 1)
+    sign_in @premium_user
+    @premium_wiki = Wiki.create!(title: 'premium title', body: 'premium body', private: true, user: @premium_user)
+
+    @admin_user = User.create!(email: 'admin@bloc.io', password: 'admin 1234', role: 2)
+    sign_in @admin_user
+    @admin_wiki = Wiki.create!(title: 'admin title', body: 'admin body', private: false, user: @admin_user)
+    ###
+
   end
 
   describe "GET #index" do
@@ -54,10 +65,6 @@ RSpec.describe WikisController, type: :controller do
     end
   end
 
-  # describe "update a wiki" do
-  #   it ""
-  # end
-
   describe "PUT update" do
     let(:new_attributes) { FactoryGirl.attributes_for(:wiki, title: 'New Title', body: 'New Body', private: false) }
 
@@ -76,12 +83,28 @@ RSpec.describe WikisController, type: :controller do
       wiki_params = FactoryGirl.attributes_for(:wiki)
       expect { post :create, :wiki => wiki_params }.to change(Wiki, :count).by(1)
     end
-    it "adds @wikis to end of @wikis" do
-      expect(@wiki).to eq(Wiki.last)
+    it "adds @wiki to end of @wikis" do
+      expect(@wiki).to eq(Wiki.first)
     end
+
+    #### probably unneccessary
+    it "adds @premium_wiki to end of @wikis" do
+      expect(@premium_wiki).to eq(Wiki.second)
+    end
+    it "adds @admin_wiki to end of @wikis" do
+      expect(@admin_wiki).to eq(Wiki.last)
+    end
+    #### probably unneccessary ^^^^^
+
     it "should be a public wiki" do
       expect(@wiki.private).to eq(false)
     end
+
+    ##### probably unneccessary
+    it "should be a public wiki" do
+      expect(@premium_wiki.private).to eq(true)
+    end
+    ###### probably unneccessary ^^^^
   end
 
   describe "GET #show" do
@@ -95,6 +118,12 @@ RSpec.describe WikisController, type: :controller do
     it "should delete the wiki" do
       expect { delete :destroy, id: @wiki.id }.to change(Wiki, :count).by(-1)
       expect(response).to redirect_to(wikis_url)
+    end
+
+    it "should NOT delete the wiki" do
+      ##### this is failing, could be something wrong in my controller
+      expect { delete :destroy, id: @premium_wiki.id }.to change(Wiki, :count)
+      expect(flash[:alert]).to_not be_nil
     end
   end
 end

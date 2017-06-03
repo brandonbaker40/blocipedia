@@ -26116,3 +26116,358 @@ Processing by WikisController#index as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
   Rendered wikis/index.html.erb within layouts/application (159.4ms)
 Completed 200 OK in 281ms (Views: 264.8ms | ActiveRecord: 12.4ms)
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" integer) [0m
+  [1m[35m (0.8ms)[0m  select sqlite_version(*)
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170509135436')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170414014737')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170419153738')[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "role" integer) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "wikis" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "private" boolean, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE  INDEX "index_wikis_on_user_id" ON "wikis" ("user_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170509135436')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170414014737')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170419153738')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jamel@yahoo.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "jamel@yahoo.com"], ["encrypted_password", "$2a$11$QvkctO.rcQ8ykxSIz2cJ7ObGeFabdt4IOZCjQf9/GgHX33n7XwZIu"], ["role", 0], ["created_at", "2017-06-02 04:56:21.599851"], ["updated_at", "2017-06-02 04:56:21.599851"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'anthony.sawayn@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "anthony.sawayn@gmail.com"], ["encrypted_password", "$2a$11$wFLC1KHeHBQdfa8.OToU5ubeni9FJOfWmMJ9DWvWYFk4WSRqAA4pa"], ["role", 0], ["created_at", "2017-06-02 04:56:21.784929"], ["updated_at", "2017-06-02 04:56:21.784929"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'marcus_jacobs@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "marcus_jacobs@hotmail.com"], ["encrypted_password", "$2a$11$koD8BwF4Zc7.j/epB/nFOuokfCPMcD9hwGbCf/0BJGc4CXUF9zwoO"], ["role", 0], ["created_at", "2017-06-02 04:56:21.971029"], ["updated_at", "2017-06-02 04:56:21.971029"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mUser Exists (8.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'delbert@yahoo.com' LIMIT 1[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "delbert@yahoo.com"], ["encrypted_password", "$2a$11$eIfnMhxhH14bgEIjQgGc1uEUcgb2PsVXJVlTCCeWpFLoxlSwQGnu6"], ["role", 2], ["created_at", "2017-06-02 04:56:22.176229"], ["updated_at", "2017-06-02 04:56:22.176229"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'norberto@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "norberto@hotmail.com"], ["encrypted_password", "$2a$11$e9zvNQjk1w0VwH5ICJvQ5OntsCke3QzVU2tzQtKUYIsDCNOgw3PMe"], ["role", 1], ["created_at", "2017-06-02 04:56:22.370393"], ["updated_at", "2017-06-02 04:56:22.370393"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'donny_donnelly@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "donny_donnelly@hotmail.com"], ["encrypted_password", "$2a$11$UTN1L8.SS9NX4gkrJQgXwe.y.B6IZtESkWZBhInjirj86U1rZikAW"], ["role", 1], ["created_at", "2017-06-02 04:56:22.553036"], ["updated_at", "2017-06-02 04:56:22.553036"]]
+  [1m[36m (8.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'gabrielle@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "gabrielle@gmail.com"], ["encrypted_password", "$2a$11$SNz4v1eHIbt5TF4Q5LP5PuiSo4DckFyqGYgNww9lPKTgHOJs68O/y"], ["role", 2], ["created_at", "2017-06-02 04:56:22.738431"], ["updated_at", "2017-06-02 04:56:22.738431"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tia.oconnell@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "tia.oconnell@hotmail.com"], ["encrypted_password", "$2a$11$Ex.ElexVuA4xllyP/z6BAui7VHm70phNpPgIXVejClaptU2JhzqV6"], ["role", 0], ["created_at", "2017-06-02 04:56:22.920863"], ["updated_at", "2017-06-02 04:56:22.920863"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'clementina_moriette@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "clementina_moriette@hotmail.com"], ["encrypted_password", "$2a$11$sjPnXp18Myqbgxa/f1uZqeSMsJVzt.osuv2zAqGmzCSsK8.P5cUzO"], ["role", 1], ["created_at", "2017-06-02 04:56:23.123370"], ["updated_at", "2017-06-02 04:56:23.123370"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'natalia@yahoo.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "natalia@yahoo.com"], ["encrypted_password", "$2a$11$IMWaBHzF7M6H/6yA4VY7EeQSJ.h1o3ttwy7XUxYD8z.s/VFDJ06j."], ["role", 0], ["created_at", "2017-06-02 04:56:23.307999"], ["updated_at", "2017-06-02 04:56:23.307999"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'marques@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "marques@gmail.com"], ["encrypted_password", "$2a$11$.OMutiIJDL9ABrU.ERyqZe6le58.Z0.A1cZGWYyVtpb.Gl45uHzBC"], ["role", 1], ["created_at", "2017-06-02 04:56:23.507016"], ["updated_at", "2017-06-02 04:56:23.507016"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'piper@yahoo.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "piper@yahoo.com"], ["encrypted_password", "$2a$11$nuIqCZgiTY/ofnnZUp/p6u0i6MKSLRoPZXi7KByjz7GlHgvV/nIfi"], ["role", 2], ["created_at", "2017-06-02 04:56:23.696078"], ["updated_at", "2017-06-02 04:56:23.696078"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'gregory.oconnell@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "gregory.oconnell@hotmail.com"], ["encrypted_password", "$2a$11$t3OiITeZkfIb90GuuinOruBjmxKlWBhNvpAZWnat6A38bjBBINM2i"], ["role", 0], ["created_at", "2017-06-02 04:56:23.895742"], ["updated_at", "2017-06-02 04:56:23.895742"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'mireille_ohara@yahoo.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "mireille_ohara@yahoo.com"], ["encrypted_password", "$2a$11$GL6sxxQ5BAWkROgxI7wArONq0mVNHADJURGFKOHZ06F13HSsMBXoq"], ["role", 0], ["created_at", "2017-06-02 04:56:24.081484"], ["updated_at", "2017-06-02 04:56:24.081484"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'sarai_huel@yahoo.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "sarai_huel@yahoo.com"], ["encrypted_password", "$2a$11$apOGi2oXQDAY5KTGuzrEJ.ruPqC42oJCzPIoqrf4MwzGWnXKLmLke"], ["role", 1], ["created_at", "2017-06-02 04:56:24.261336"], ["updated_at", "2017-06-02 04:56:24.261336"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Lando Calrissian"], ["body", "Who's the more foolish; the fool, or the fool who follows him?"], ["private", "f"], ["user_id", 11], ["created_at", "2017-06-02 04:56:24.291360"], ["updated_at", "2017-06-02 04:56:24.291360"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Count Dooku"], ["body", "I find your lack of faith disturbing."], ["private", "t"], ["user_id", 6], ["created_at", "2017-06-02 04:56:24.295624"], ["updated_at", "2017-06-02 04:56:24.295624"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Yoda"], ["body", "Wars not make one great."], ["private", "t"], ["user_id", 4], ["created_at", "2017-06-02 04:56:24.300595"], ["updated_at", "2017-06-02 04:56:24.300595"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Wedge Antilles"], ["body", "Who's the more foolish; the fool, or the fool who follows him?"], ["private", "t"], ["user_id", 14], ["created_at", "2017-06-02 04:56:24.304032"], ["updated_at", "2017-06-02 04:56:24.304032"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Ki-Adi-Mundi"], ["body", "Judge me by my size, do you?"], ["private", "f"], ["user_id", 10], ["created_at", "2017-06-02 04:56:24.307309"], ["updated_at", "2017-06-02 04:56:24.307309"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Wedge Antilles"], ["body", "Only at the end do you realize the power of the Dark Side."], ["private", "f"], ["user_id", 10], ["created_at", "2017-06-02 04:56:24.310987"], ["updated_at", "2017-06-02 04:56:24.310987"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Panaka"], ["body", "That is why you fail."], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-02 04:56:24.314465"], ["updated_at", "2017-06-02 04:56:24.314465"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Chewbacca"], ["body", "Aren't you a little short for a Stormtrooper?"], ["private", "t"], ["user_id", 4], ["created_at", "2017-06-02 04:56:24.317991"], ["updated_at", "2017-06-02 04:56:24.317991"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Poe Dameron"], ["body", "R2-D2, you know better than to trust a strange computer!"], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-02 04:56:24.321869"], ["updated_at", "2017-06-02 04:56:24.321869"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Count Dooku"], ["body", "Well, you said you wanted to be around when I made a mistake."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-02 04:56:24.326200"], ["updated_at", "2017-06-02 04:56:24.326200"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Jar Jar Binks"], ["body", "That is why you fail."], ["private", "f"], ["user_id", 15], ["created_at", "2017-06-02 04:56:24.330008"], ["updated_at", "2017-06-02 04:56:24.330008"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Count Dooku"], ["body", "Never tell me the odds!"], ["private", "f"], ["user_id", 9], ["created_at", "2017-06-02 04:56:24.333929"], ["updated_at", "2017-06-02 04:56:24.333929"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Boba Fett"], ["body", "Would somebody get this big walking carpet out of my way?"], ["private", "t"], ["user_id", 1], ["created_at", "2017-06-02 04:56:24.337142"], ["updated_at", "2017-06-02 04:56:24.337142"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Leia Organa"], ["body", "Would somebody get this big walking carpet out of my way?"], ["private", "f"], ["user_id", 10], ["created_at", "2017-06-02 04:56:24.340091"], ["updated_at", "2017-06-02 04:56:24.340091"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Borvo the Hutt"], ["body", "No reward is worth this."], ["private", "t"], ["user_id", 14], ["created_at", "2017-06-02 04:56:24.343277"], ["updated_at", "2017-06-02 04:56:24.343277"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Darth Maul"], ["body", "Well, you said you wanted to be around when I made a mistake."], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-02 04:56:24.346583"], ["updated_at", "2017-06-02 04:56:24.346583"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Darth Caedus"], ["body", "It's not impossible. I used to bullseye womp rats in my T-16 back home, they're not much bigger than two meters."], ["private", "t"], ["user_id", 3], ["created_at", "2017-06-02 04:56:24.350642"], ["updated_at", "2017-06-02 04:56:24.350642"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Mace Windu"], ["body", "Adventure. Excitement. A Jedi craves not these things."], ["private", "t"], ["user_id", 11], ["created_at", "2017-06-02 04:56:24.354813"], ["updated_at", "2017-06-02 04:56:24.354813"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Bail Organa"], ["body", "Never tell me the odds!"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-02 04:56:24.360315"], ["updated_at", "2017-06-02 04:56:24.360315"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Jar Jar Binks"], ["body", "Adventure. Excitement. A Jedi craves not these things."], ["private", "t"], ["user_id", 13], ["created_at", "2017-06-02 04:56:24.365354"], ["updated_at", "2017-06-02 04:56:24.365354"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Jar Jar Binks"], ["body", "Adventure. Excitement. A Jedi craves not these things."], ["private", "t"], ["user_id", 7], ["created_at", "2017-06-02 04:56:24.369454"], ["updated_at", "2017-06-02 04:56:24.369454"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Wedge Antilles"], ["body", "No reward is worth this."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-02 04:56:24.373714"], ["updated_at", "2017-06-02 04:56:24.373714"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Sebulba"], ["body", "You do have your moments. Not many, but you have them."], ["private", "f"], ["user_id", 8], ["created_at", "2017-06-02 04:56:24.377134"], ["updated_at", "2017-06-02 04:56:24.377134"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Luke Skywalker"], ["body", "If they follow standard Imperial procedure, they'll dump their garbage before they go to light-speed."], ["private", "f"], ["user_id", 13], ["created_at", "2017-06-02 04:56:24.381536"], ["updated_at", "2017-06-02 04:56:24.381536"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Anakin Skywalker"], ["body", "Never tell me the odds!"], ["private", "f"], ["user_id", 9], ["created_at", "2017-06-02 04:56:24.384808"], ["updated_at", "2017-06-02 04:56:24.384808"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Count Dooku"], ["body", "Who's the more foolish; the fool, or the fool who follows him?"], ["private", "t"], ["user_id", 10], ["created_at", "2017-06-02 04:56:24.389231"], ["updated_at", "2017-06-02 04:56:24.389231"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Bail Organa"], ["body", "Adventure. Excitement. A Jedi craves not these things."], ["private", "f"], ["user_id", 10], ["created_at", "2017-06-02 04:56:24.394254"], ["updated_at", "2017-06-02 04:56:24.394254"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Darth Caedus"], ["body", "Truly wonderful, the mind of a child is."], ["private", "f"], ["user_id", 6], ["created_at", "2017-06-02 04:56:24.398617"], ["updated_at", "2017-06-02 04:56:24.398617"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Watto"], ["body", "Do. Or do not. There is no try."], ["private", "f"], ["user_id", 11], ["created_at", "2017-06-02 04:56:24.402653"], ["updated_at", "2017-06-02 04:56:24.402653"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Ben Solo"], ["body", "You know, that little droid is going to cause me a lot of trouble."], ["private", "t"], ["user_id", 6], ["created_at", "2017-06-02 04:56:24.406003"], ["updated_at", "2017-06-02 04:56:24.406003"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Poe Dameron"], ["body", "A Jedi uses the Force for knowledge and defense, never for attack."], ["private", "t"], ["user_id", 15], ["created_at", "2017-06-02 04:56:24.409216"], ["updated_at", "2017-06-02 04:56:24.409216"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Leia Organa"], ["body", "Fear is the path to the dark side... fear leads to anger... anger leads to hate... hate leads to suffering."], ["private", "f"], ["user_id", 2], ["created_at", "2017-06-02 04:56:24.412939"], ["updated_at", "2017-06-02 04:56:24.412939"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Kylo Ren"], ["body", "If you're saying that coming here was a bad idea, I'm starting to agree with you."], ["private", "t"], ["user_id", 9], ["created_at", "2017-06-02 04:56:24.417380"], ["updated_at", "2017-06-02 04:56:24.417380"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Qui-Gon Jinn"], ["body", "Only at the end do you realize the power of the Dark Side."], ["private", "f"], ["user_id", 12], ["created_at", "2017-06-02 04:56:24.422591"], ["updated_at", "2017-06-02 04:56:24.422591"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Anakin Skywalker"], ["body", "You are unwise to lower your defenses!"], ["private", "t"], ["user_id", 5], ["created_at", "2017-06-02 04:56:24.426328"], ["updated_at", "2017-06-02 04:56:24.426328"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Watto"], ["body", "Strike me down, and I will become more powerful than you could possibly imagine."], ["private", "t"], ["user_id", 13], ["created_at", "2017-06-02 04:56:24.429495"], ["updated_at", "2017-06-02 04:56:24.429495"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Wedge Antilles"], ["body", "Now, witness the power of this fully operational battle station."], ["private", "t"], ["user_id", 15], ["created_at", "2017-06-02 04:56:24.432864"], ["updated_at", "2017-06-02 04:56:24.432864"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Darth Maul"], ["body", "Adventure. Excitement. A Jedi craves not these things."], ["private", "f"], ["user_id", 4], ["created_at", "2017-06-02 04:56:24.436126"], ["updated_at", "2017-06-02 04:56:24.436126"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Boba Fett"], ["body", "Strike me down, and I will become more powerful than you could possibly imagine."], ["private", "t"], ["user_id", 4], ["created_at", "2017-06-02 04:56:24.439721"], ["updated_at", "2017-06-02 04:56:24.439721"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Jar Jar Binks"], ["body", "Bounty hunters! We don't need this scum."], ["private", "t"], ["user_id", 8], ["created_at", "2017-06-02 04:56:24.443605"], ["updated_at", "2017-06-02 04:56:24.443605"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Ben Solo"], ["body", "Do. Or do not. There is no try."], ["private", "f"], ["user_id", 14], ["created_at", "2017-06-02 04:56:24.448272"], ["updated_at", "2017-06-02 04:56:24.448272"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Darth Sidious"], ["body", "It's not impossible. I used to bullseye womp rats in my T-16 back home, they're not much bigger than two meters."], ["private", "t"], ["user_id", 14], ["created_at", "2017-06-02 04:56:24.452078"], ["updated_at", "2017-06-02 04:56:24.452078"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Sheev Palpatine"], ["body", "Bounty hunters! We don't need this scum."], ["private", "t"], ["user_id", 4], ["created_at", "2017-06-02 04:56:24.456030"], ["updated_at", "2017-06-02 04:56:24.456030"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Bail Organa"], ["body", "Fear is the path to the dark side... fear leads to anger... anger leads to hate... hate leads to suffering."], ["private", "t"], ["user_id", 11], ["created_at", "2017-06-02 04:56:24.459750"], ["updated_at", "2017-06-02 04:56:24.459750"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Boba Fett"], ["body", "Only at the end do you realize the power of the Dark Side."], ["private", "t"], ["user_id", 15], ["created_at", "2017-06-02 04:56:24.463667"], ["updated_at", "2017-06-02 04:56:24.463667"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Anakin Skywalker"], ["body", "You will never find a more wretched hive of scum and villainy. We must be cautious."], ["private", "f"], ["user_id", 4], ["created_at", "2017-06-02 04:56:24.467261"], ["updated_at", "2017-06-02 04:56:24.467261"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Ki-Adi-Mundi"], ["body", "Shut him up or shut him down."], ["private", "f"], ["user_id", 15], ["created_at", "2017-06-02 04:56:24.470694"], ["updated_at", "2017-06-02 04:56:24.470694"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Nute Gunray"], ["body", "Never tell me the odds!"], ["private", "t"], ["user_id", 13], ["created_at", "2017-06-02 04:56:24.474498"], ["updated_at", "2017-06-02 04:56:24.474498"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Chewbacca"], ["body", "Never tell me the odds!"], ["private", "t"], ["user_id", 14], ["created_at", "2017-06-02 04:56:24.478592"], ["updated_at", "2017-06-02 04:56:24.478592"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "Bail Organa"], ["body", "If you're saying that coming here was a bad idea, I'm starting to agree with you."], ["private", "f"], ["user_id", 15], ["created_at", "2017-06-02 04:56:24.482489"], ["updated_at", "2017-06-02 04:56:24.482489"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+  [1m[36mUser Load (3.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (9.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'brandon@yoo.com' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "brandon@yoo.com"], ["encrypted_password", "$2a$11$vGOKw1kU9d3LJTqF4L00L.1gpHDUCuwtw92bu/3TBfa32ZLQPla3C"], ["role", 0], ["created_at", "2017-06-02 04:57:38.756151"], ["updated_at", "2017-06-02 04:57:38.756151"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mUser Load (4.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mWiki Load (0.5ms)[0m  SELECT "wikis".* FROM "wikis" WHERE "wikis"."user_id" = ?  [["user_id", 16]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "yooo"], ["body", "here you go"], ["private", "f"], ["user_id", 16], ["created_at", "2017-06-02 04:59:38.389617"], ["updated_at", "2017-06-02 04:59:38.389617"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mWiki Load (0.9ms)[0m  SELECT "wikis".* FROM "wikis" WHERE "wikis"."user_id" = ?  [["user_id", 13]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  DELETE FROM "wikis" WHERE "wikis"."id" = ?  [["id", 20]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 16]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/wikis" for ::1 at 2017-06-02 19:49:10 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 17]]
+Completed 401 Unauthorized in 116ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-06-02 19:49:11 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (14.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (68.3ms)
+Completed 200 OK in 672ms (Views: 649.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2017-06-02 19:49:12 -0400
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2017-06-02 19:49:12 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2017-06-02 19:49:12 -0400
+
+
+Started GET "/assets/wikis.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2017-06-02 19:49:12 -0400
+
+
+Started GET "/assets/charges.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2017-06-02 19:49:12 -0400

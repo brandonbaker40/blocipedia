@@ -22,4 +22,13 @@ module ControllerMacros
       sign_in standard
     end
   end
+
+  def downgrade_premium_to_standard
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:premium]
+      premium = User.create(email: 'blocpremiumtodowngrade@bloc.io', password: 'cocoapuffs1234', role: 1)
+      sign_in premium
+      premium.update(role: 0)
+    end
+  end
 end
