@@ -122,7 +122,7 @@ RSpec.describe WikisController, type: :controller do
 
     it "should NOT delete the wiki" do
       ##### this is failing, could be something wrong in my controller
-      expect { delete :destroy, id: @premium_wiki.id }.to change(Wiki, :count)
+      expect { delete :destroy, id: @premium_wiki.id }.to_not change(Wiki, :count)
       expect(flash[:alert]).to_not be_nil
     end
   end

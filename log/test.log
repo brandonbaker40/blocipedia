@@ -29519,3 +29519,851 @@ Redirected to http://test.host/wikis
 Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
   [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$HcMd0H5VfurPKqdefQXfgucmVUS9NIZLQGd3zftFGQWcpUCqY3sT2"], ["role", 0], ["created_at", "2017-06-03 03:47:40.454937"], ["updated_at", "2017-06-03 03:47:40.454937"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.480901"], ["updated_at", "2017-06-03 03:47:40.480901"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$q19UcVPRY1AmNfRu9jnzSOI7oxEx0J.TSB6frZpXUhMYVitcDB5vu"], ["role", 1], ["created_at", "2017-06-03 03:47:40.488569"], ["updated_at", "2017-06-03 03:47:40.488569"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.490852"], ["updated_at", "2017-06-03 03:47:40.490852"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$Yz9CWxrctyDYOwEoINJlNOuL6Vb0bLOsqu10EV0rNRcefzFrRu/ka"], ["role", 2], ["created_at", "2017-06-03 03:47:40.494755"], ["updated_at", "2017-06-03 03:47:40.494755"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.497130"], ["updated_at", "2017-06-03 03:47:40.497130"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered wikis/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 39ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$o428HCom80zrI.AUYRM2.uDFhjsgqHPUuYf.Q.IkXde7L4Tq.jh/W"], ["role", 0], ["created_at", "2017-06-03 03:47:40.547936"], ["updated_at", "2017-06-03 03:47:40.547936"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.549855"], ["updated_at", "2017-06-03 03:47:40.549855"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$byOweMTv717j5dgXhhsKke1/zdLZu9PK3txjvi2q4N3DPY3FSrZkC"], ["role", 1], ["created_at", "2017-06-03 03:47:40.555224"], ["updated_at", "2017-06-03 03:47:40.555224"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.558332"], ["updated_at", "2017-06-03 03:47:40.558332"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$Ip5aIYA/dcm.FqBxu1UjvOaJkqlDfXKjBCOmNkOtsUD26aG2Xam9y"], ["role", 2], ["created_at", "2017-06-03 03:47:40.563965"], ["updated_at", "2017-06-03 03:47:40.563965"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.565645"], ["updated_at", "2017-06-03 03:47:40.565645"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered wikis/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$orZXynPgQV/w8V3T7b.yNOq2VhZ7nBFjviEDQ6kfBtJ1JBJkuuv8i"], ["role", 0], ["created_at", "2017-06-03 03:47:40.578099"], ["updated_at", "2017-06-03 03:47:40.578099"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.581164"], ["updated_at", "2017-06-03 03:47:40.581164"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$czWc8nQ.SEDmGBufwLArROQTrBb8Hh9ANaVKDs/4e0.qt9fx3Mhe6"], ["role", 1], ["created_at", "2017-06-03 03:47:40.586326"], ["updated_at", "2017-06-03 03:47:40.586326"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.589523"], ["updated_at", "2017-06-03 03:47:40.589523"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$/nORlJ3XQMc5v5BEqt5egeuU85oCpkSBl3k0gLrwcgBt1JlKRgNnG"], ["role", 2], ["created_at", "2017-06-03 03:47:40.594653"], ["updated_at", "2017-06-03 03:47:40.594653"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.597180"], ["updated_at", "2017-06-03 03:47:40.597180"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$4Ad2t140wYc3G4I/GmjrCeTJ6ovRtiJ6In7Bu0PMAG6muNBdSpFiC"], ["role", 0], ["created_at", "2017-06-03 03:47:40.605387"], ["updated_at", "2017-06-03 03:47:40.605387"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.607359"], ["updated_at", "2017-06-03 03:47:40.607359"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$BFq57SRBfEzcZSj4S5W9QeyShoA7ZfypYDgPYAkZzj/s8XRUsnOcu"], ["role", 1], ["created_at", "2017-06-03 03:47:40.611221"], ["updated_at", "2017-06-03 03:47:40.611221"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.612965"], ["updated_at", "2017-06-03 03:47:40.612965"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$WbfevgROg1I3Vm5GDkh0ouoqB4IwNE7thGFTFJTrpdytEsDO4rkuC"], ["role", 2], ["created_at", "2017-06-03 03:47:40.616411"], ["updated_at", "2017-06-03 03:47:40.616411"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.617875"], ["updated_at", "2017-06-03 03:47:40.617875"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#new as HTML
+  Parameters: {"params"=>{}, "session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  Rendered wikis/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$wnwK.Vy3xV3mjyM4eIkbOu/qB0XjEn9ltZ.2dhkWBzWXDHv9az1Jy"], ["role", 0], ["created_at", "2017-06-03 03:47:40.632748"], ["updated_at", "2017-06-03 03:47:40.632748"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.634893"], ["updated_at", "2017-06-03 03:47:40.634893"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$WmbYC0/ofWMugKipfembKO0sUqPlEFflr.TZkWIXPPpyQTxsL.Kzq"], ["role", 1], ["created_at", "2017-06-03 03:47:40.641330"], ["updated_at", "2017-06-03 03:47:40.641330"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.643909"], ["updated_at", "2017-06-03 03:47:40.643909"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$0xe2FcgxLV3uPK6PfUMH9OJM4eCYhWtwg4Nm7iwG5k.OdQROAY5Ju"], ["role", 2], ["created_at", "2017-06-03 03:47:40.647319"], ["updated_at", "2017-06-03 03:47:40.647319"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.648780"], ["updated_at", "2017-06-03 03:47:40.648780"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  Rendered wikis/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 3.4ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$DgCOkO85Yruz3YZmqZ7M/esB64t3TLDzwWjtio7gzK8ma8M3B4Noq"], ["role", 0], ["created_at", "2017-06-03 03:47:40.668021"], ["updated_at", "2017-06-03 03:47:40.668021"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.674096"], ["updated_at", "2017-06-03 03:47:40.674096"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$BHj/M8xJZ00brpTGD23Fv.lCeJJHBHCFVtOZosx9QvmN2Ld6jufGC"], ["role", 1], ["created_at", "2017-06-03 03:47:40.678863"], ["updated_at", "2017-06-03 03:47:40.678863"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.681463"], ["updated_at", "2017-06-03 03:47:40.681463"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$F8hnSNFwreDADqBMi7rwuu3PAg8n5GUfcyZL6IIYJyNtgiub/xpG."], ["role", 2], ["created_at", "2017-06-03 03:47:40.686199"], ["updated_at", "2017-06-03 03:47:40.686199"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.688926"], ["updated_at", "2017-06-03 03:47:40.688926"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "MyTitle"], ["body", "MyBody"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.705082"], ["updated_at", "2017-06-03 03:47:40.705082"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#update as HTML
+  Parameters: {"wiki"=>{"title"=>"New Title", "body"=>"New Body", "private"=>false, "user"=>nil}, "id"=>"4"}
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Unpermitted parameter: user
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?  [["title", "New Title"], ["body", "New Body"], ["updated_at", "2017-06-03 03:47:40.710938"], ["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis/4
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+  [1m[35mWiki Load (0.0ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$b.2Ech1amM2zaO8v.dqpz.IMshILwNt/MD1cc5.GeNuDSG1Sy0ivu"], ["role", 0], ["created_at", "2017-06-03 03:47:40.723879"], ["updated_at", "2017-06-03 03:47:40.723879"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.725971"], ["updated_at", "2017-06-03 03:47:40.725971"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$stcpZ7KyXmXgJ3NOImbMGODTQCXvubArys8WP4DHuy3ME7GQyIu6C"], ["role", 1], ["created_at", "2017-06-03 03:47:40.729716"], ["updated_at", "2017-06-03 03:47:40.729716"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.731334"], ["updated_at", "2017-06-03 03:47:40.731334"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$cQgRzd0PrAUF9K8MllBAGub6wme7a/.bmc4GOEnH0jUkQS3FGo9au"], ["role", 2], ["created_at", "2017-06-03 03:47:40.735565"], ["updated_at", "2017-06-03 03:47:40.735565"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.738698"], ["updated_at", "2017-06-03 03:47:40.738698"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "wikis"
+Processing by WikisController#create as HTML
+  Parameters: {"wiki"=>{"title"=>"MyString", "body"=>"MyText", "private"=>false, "user"=>nil}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+Unpermitted parameter: user
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "MyString"], ["body", "MyText"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.751432"], ["updated_at", "2017-06-03 03:47:40.751432"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/4
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$u63no6I1FHkwj81AEmhHI.XastrEr4JqG.07.1FKaPe2Y48TYW41."], ["role", 0], ["created_at", "2017-06-03 03:47:40.761718"], ["updated_at", "2017-06-03 03:47:40.761718"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.764102"], ["updated_at", "2017-06-03 03:47:40.764102"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$Jvrfv9r22D5sJf23/KLM/.7hSacrOKUstVQcvT3Xe.PMOenExAIuS"], ["role", 1], ["created_at", "2017-06-03 03:47:40.768008"], ["updated_at", "2017-06-03 03:47:40.768008"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.769924"], ["updated_at", "2017-06-03 03:47:40.769924"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$iVw2cIZP.0jKBmwc6RduZez/bFvPJwqLWCrex/iwRP1jhs6ezOuje"], ["role", 2], ["created_at", "2017-06-03 03:47:40.775892"], ["updated_at", "2017-06-03 03:47:40.775892"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.779251"], ["updated_at", "2017-06-03 03:47:40.779251"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis"  ORDER BY "wikis"."id" ASC LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$MVA3lX/wNy3dIk5G7PROqOk3J46iFCeoUWB53ZM0ssk6BqmN1Yi3G"], ["role", 0], ["created_at", "2017-06-03 03:47:40.787843"], ["updated_at", "2017-06-03 03:47:40.787843"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.790870"], ["updated_at", "2017-06-03 03:47:40.790870"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$C70uBmq8HLz7TRxVQWpDUetyhy0IoGjMCGF806rv389K2acBU9JwS"], ["role", 1], ["created_at", "2017-06-03 03:47:40.795820"], ["updated_at", "2017-06-03 03:47:40.795820"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.798253"], ["updated_at", "2017-06-03 03:47:40.798253"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$B/Az4U32jPXRgCXtsJioGOHzWNFN5UhoWzS4PjSvyVhlhqoCtxECa"], ["role", 2], ["created_at", "2017-06-03 03:47:40.803729"], ["updated_at", "2017-06-03 03:47:40.803729"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.806692"], ["updated_at", "2017-06-03 03:47:40.806692"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis"  ORDER BY "wikis"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$QW98XJ8D8bfVUu/bqe8YFO2YoL6PeBucpTB8mTN2ju/Sjsw2.QkMG"], ["role", 0], ["created_at", "2017-06-03 03:47:40.814977"], ["updated_at", "2017-06-03 03:47:40.814977"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.816974"], ["updated_at", "2017-06-03 03:47:40.816974"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$CbPJIfcBpR.o2mBSLoY4Wu.y1.Bt/ovQ36gDJZELiE13bLVgsjO6q"], ["role", 1], ["created_at", "2017-06-03 03:47:40.821526"], ["updated_at", "2017-06-03 03:47:40.821526"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.824669"], ["updated_at", "2017-06-03 03:47:40.824669"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$VYDh1oQgS/QC8j8lnh0fYO6k5Q7aJBe2W9hIla4QOkRL4TuP20/va"], ["role", 2], ["created_at", "2017-06-03 03:47:40.828284"], ["updated_at", "2017-06-03 03:47:40.828284"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.829915"], ["updated_at", "2017-06-03 03:47:40.829915"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis"  ORDER BY "wikis"."id" DESC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$u.KqKUTDa1sQwCCij.Fc8.cxHaW/VV.fr.0iH0YOkuhJKx9PDFLA6"], ["role", 0], ["created_at", "2017-06-03 03:47:40.836518"], ["updated_at", "2017-06-03 03:47:40.836518"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.839855"], ["updated_at", "2017-06-03 03:47:40.839855"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$O.Grp4uzM0FRGrlYeEremO4vhrijTYUj6Lfh3ssCNn1FHWGnj3TYe"], ["role", 1], ["created_at", "2017-06-03 03:47:40.845970"], ["updated_at", "2017-06-03 03:47:40.845970"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.848482"], ["updated_at", "2017-06-03 03:47:40.848482"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$u4NpN6iN2y2sk8Zr43xozuNI6jEhhwci50aajUzdJgNolktBGKKfi"], ["role", 2], ["created_at", "2017-06-03 03:47:40.852815"], ["updated_at", "2017-06-03 03:47:40.852815"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.855384"], ["updated_at", "2017-06-03 03:47:40.855384"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$ce4k6vV3lJqWxPfqGso5ZeOK/34v6o08PuOD.bJKyaiHScKXCg5ZO"], ["role", 0], ["created_at", "2017-06-03 03:47:40.862457"], ["updated_at", "2017-06-03 03:47:40.862457"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.864394"], ["updated_at", "2017-06-03 03:47:40.864394"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$VtltCm8V0JXn.HXPFywROOJ.KxJ7r2QICqIv.qvM7PF6ZAUKZWZiC"], ["role", 1], ["created_at", "2017-06-03 03:47:40.867620"], ["updated_at", "2017-06-03 03:47:40.867620"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.869658"], ["updated_at", "2017-06-03 03:47:40.869658"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$3L4/JxuqnX5vlZPJxm1WN.QZ4l.NuY8U0O03qizePfdzzEMhHiou6"], ["role", 2], ["created_at", "2017-06-03 03:47:40.874253"], ["updated_at", "2017-06-03 03:47:40.874253"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.876157"], ["updated_at", "2017-06-03 03:47:40.876157"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$OGwK1HiVJvsBlNp9..kEJu.uUlrB1OmAMsmS/fhV03mfiouvLU13i"], ["role", 0], ["created_at", "2017-06-03 03:47:40.883069"], ["updated_at", "2017-06-03 03:47:40.883069"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.885151"], ["updated_at", "2017-06-03 03:47:40.885151"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$h08uAkuklTqr3oDMiEPuCeq7tm2FoQp5xUDh5u3s75JjXYRaKXxOq"], ["role", 1], ["created_at", "2017-06-03 03:47:40.890224"], ["updated_at", "2017-06-03 03:47:40.890224"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.891888"], ["updated_at", "2017-06-03 03:47:40.891888"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$aX59qX4eR.dX4FODq0TRF.4gEiuOxgyALnJH2WWUCFt3jxD5EjWJy"], ["role", 2], ["created_at", "2017-06-03 03:47:40.897413"], ["updated_at", "2017-06-03 03:47:40.897413"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.899939"], ["updated_at", "2017-06-03 03:47:40.899939"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered wikis/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$jc52eyJdmUzjZqA8jqN7Te3P5YtBEl/Nik4a1TWujWh6J0GR3tnGC"], ["role", 0], ["created_at", "2017-06-03 03:47:40.914191"], ["updated_at", "2017-06-03 03:47:40.914191"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.915959"], ["updated_at", "2017-06-03 03:47:40.915959"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$To8Og7B4fbGSha5FyslAlecTLaNIi3dmNZfHMHf8YqJFQ1zT4BmQ6"], ["role", 1], ["created_at", "2017-06-03 03:47:40.920284"], ["updated_at", "2017-06-03 03:47:40.920284"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.923679"], ["updated_at", "2017-06-03 03:47:40.923679"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$6uyvtO.UTR.IsskcVBHRX.b0HRUFBac4ecFw2xI6wmalHvSMuctYG"], ["role", 2], ["created_at", "2017-06-03 03:47:40.927246"], ["updated_at", "2017-06-03 03:47:40.927246"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.928731"], ["updated_at", "2017-06-03 03:47:40.928731"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+Processing by WikisController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mWiki Load (0.0ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mWiki Load (0.0ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "wikis" WHERE "wikis"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "wikis"
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$vbPDfQVb0G23ejqH2.DS..sWhlaPP2DWruRuKNAVeUo4Tdj5Teep6"], ["role", 0], ["created_at", "2017-06-03 03:47:40.940244"], ["updated_at", "2017-06-03 03:47:40.940244"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:47:40.942438"], ["updated_at", "2017-06-03 03:47:40.942438"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$qkZnVKOuS5BHycK4rdholuPlPtxrvHFeiCM/vcI7qwY9xVjE.Lqsy"], ["role", 1], ["created_at", "2017-06-03 03:47:40.947282"], ["updated_at", "2017-06-03 03:47:40.947282"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:47:40.949773"], ["updated_at", "2017-06-03 03:47:40.949773"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$JtgqhcIlskHoas4pUt8boum2Rz5t1TDQnu0g1EehpI2IfEywQGav6"], ["role", 2], ["created_at", "2017-06-03 03:47:40.954367"], ["updated_at", "2017-06-03 03:47:40.954367"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:47:40.957913"], ["updated_at", "2017-06-03 03:47:40.957913"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "wikis"
+Processing by WikisController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "wikis" WHERE "wikis"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$oYUL97ZoYWepZSaXwbl1b.XlUzOKFKgTvTL6lH4EkwmHk49a0UvXK"], ["role", 0], ["created_at", "2017-06-03 03:48:04.275122"], ["updated_at", "2017-06-03 03:48:04.275122"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.298149"], ["updated_at", "2017-06-03 03:48:04.298149"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$OziQVmvyyG0UxkvMKtMzceEjwA5qA83zOFjEJMR/YwcUajKfu26ca"], ["role", 1], ["created_at", "2017-06-03 03:48:04.303895"], ["updated_at", "2017-06-03 03:48:04.303895"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.305719"], ["updated_at", "2017-06-03 03:48:04.305719"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$BfpVhzMoKKiikAjjh5fXh.DUAp3P.aNMXzAl.ISKnC0KA7w4dGmgG"], ["role", 2], ["created_at", "2017-06-03 03:48:04.308998"], ["updated_at", "2017-06-03 03:48:04.308998"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.310395"], ["updated_at", "2017-06-03 03:48:04.310395"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered wikis/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 46ms (Views: 25.7ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$KlfDkyS/.o.eOvSl5IWYqufttZK9f9wuDx2x8gnKqFzKzMlDtlGjq"], ["role", 0], ["created_at", "2017-06-03 03:48:04.370333"], ["updated_at", "2017-06-03 03:48:04.370333"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.372805"], ["updated_at", "2017-06-03 03:48:04.372805"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$1EnEJuJURXEfMPXcLPeZYuVuW3FYGptszst0DS1.SK6Th/61C.tba"], ["role", 1], ["created_at", "2017-06-03 03:48:04.377921"], ["updated_at", "2017-06-03 03:48:04.377921"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.381511"], ["updated_at", "2017-06-03 03:48:04.381511"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$Le8K1o6D8a8giHPsfcnYAe7LBIdVzWCKgoaWlu61iod282ZVFGFoG"], ["role", 2], ["created_at", "2017-06-03 03:48:04.385589"], ["updated_at", "2017-06-03 03:48:04.385589"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.387278"], ["updated_at", "2017-06-03 03:48:04.387278"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by WikisController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered wikis/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$gy5G5oVGoqvo96fk/6b6x.2FlYxT1iaiPZnv8yoqPqvC3SrCzS1mW"], ["role", 0], ["created_at", "2017-06-03 03:48:04.397834"], ["updated_at", "2017-06-03 03:48:04.397834"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.400654"], ["updated_at", "2017-06-03 03:48:04.400654"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$3Kj7XSvbBeSCVaRHGUcYse.2OVO9RwZYzRNur36xo2JVIp7hDDIhO"], ["role", 1], ["created_at", "2017-06-03 03:48:04.407463"], ["updated_at", "2017-06-03 03:48:04.407463"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.409516"], ["updated_at", "2017-06-03 03:48:04.409516"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$Cld7q/m9UMRFEIXcJNu/peDq1MKRlLDerdqDvfDAR9c7zYQTlPVOO"], ["role", 2], ["created_at", "2017-06-03 03:48:04.413032"], ["updated_at", "2017-06-03 03:48:04.413032"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.414653"], ["updated_at", "2017-06-03 03:48:04.414653"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$QhGshEycJqdkj6q5BIKhSO5M3qabIbvYch5ywdUGwUS3CbD0crKzO"], ["role", 0], ["created_at", "2017-06-03 03:48:04.423175"], ["updated_at", "2017-06-03 03:48:04.423175"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.425334"], ["updated_at", "2017-06-03 03:48:04.425334"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$fjZt1IaDZb7Qa4vSwdwa4ukyKi0DyGUguCH92w9/d7zuKz0c69io6"], ["role", 1], ["created_at", "2017-06-03 03:48:04.428948"], ["updated_at", "2017-06-03 03:48:04.428948"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.430468"], ["updated_at", "2017-06-03 03:48:04.430468"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$YUfZHm4KyWtyCWcuQsl5UOmVqRQDvSorHuJzCUWlttv3kDOrt95nO"], ["role", 2], ["created_at", "2017-06-03 03:48:04.435362"], ["updated_at", "2017-06-03 03:48:04.435362"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.439620"], ["updated_at", "2017-06-03 03:48:04.439620"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#new as HTML
+  Parameters: {"params"=>{}, "session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  Rendered wikis/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$X4x7LZZ1.9e72Mqa042S7OKid9dh1NngJNLNMGGEnXdo3gOSd7g0a"], ["role", 0], ["created_at", "2017-06-03 03:48:04.457789"], ["updated_at", "2017-06-03 03:48:04.457789"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.461039"], ["updated_at", "2017-06-03 03:48:04.461039"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$wozy2cMfetn6u6Y607nGweFjvCi6Kl6pkS.aQg57Kvxvp9Bow2upC"], ["role", 1], ["created_at", "2017-06-03 03:48:04.464529"], ["updated_at", "2017-06-03 03:48:04.464529"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.465949"], ["updated_at", "2017-06-03 03:48:04.465949"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$sHvLXVQyujwLyQc4PEPYUecQrVRkkZQ1SR8sEkjn9MoKVAA6GVvGa"], ["role", 2], ["created_at", "2017-06-03 03:48:04.470617"], ["updated_at", "2017-06-03 03:48:04.470617"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.472733"], ["updated_at", "2017-06-03 03:48:04.472733"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWiki Load (0.2ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  Rendered wikis/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 14ms (Views: 5.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$BLeHamAd7t8NiOtSAyXS.uyZcOuCGGrblnVsg5A7/NF9Ag/uum2oC"], ["role", 0], ["created_at", "2017-06-03 03:48:04.496835"], ["updated_at", "2017-06-03 03:48:04.496835"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.500288"], ["updated_at", "2017-06-03 03:48:04.500288"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$oPIbNGavCiY28UrEpeXBfOUGCa/j8IaTTpv6V/vkvPs/1W6sc8yna"], ["role", 1], ["created_at", "2017-06-03 03:48:04.504879"], ["updated_at", "2017-06-03 03:48:04.504879"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.506564"], ["updated_at", "2017-06-03 03:48:04.506564"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$Td5alacZBRRi/Yzb8bOQBur5CWai8efrmoT8kdWGlN7/D..m8ol26"], ["role", 2], ["created_at", "2017-06-03 03:48:04.509767"], ["updated_at", "2017-06-03 03:48:04.509767"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.511245"], ["updated_at", "2017-06-03 03:48:04.511245"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "MyTitle"], ["body", "MyBody"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.531529"], ["updated_at", "2017-06-03 03:48:04.531529"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#update as HTML
+  Parameters: {"wiki"=>{"title"=>"New Title", "body"=>"New Body", "private"=>false, "user"=>nil}, "id"=>"4"}
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Unpermitted parameter: user
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "wikis" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "wikis"."id" = ?  [["title", "New Title"], ["body", "New Body"], ["updated_at", "2017-06-03 03:48:04.539648"], ["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis/4
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+  [1m[35mWiki Load (0.0ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$N2fpeUw8u80dox4SARaoTunyKlgYmx9BlvTY45oezZIFl0H8t2Mpm"], ["role", 0], ["created_at", "2017-06-03 03:48:04.552111"], ["updated_at", "2017-06-03 03:48:04.552111"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.554301"], ["updated_at", "2017-06-03 03:48:04.554301"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$Zvmlxttux/wCf8NNnC0dleENJqPRCHhC8fbdidRJiqrOdEpHDeIZi"], ["role", 1], ["created_at", "2017-06-03 03:48:04.558168"], ["updated_at", "2017-06-03 03:48:04.558168"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.559974"], ["updated_at", "2017-06-03 03:48:04.559974"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$X31fjazHsLCYKmDOI.zeXe302eLO0SP8f6/JPRqTPLOVc1MUDjkee"], ["role", 2], ["created_at", "2017-06-03 03:48:04.564772"], ["updated_at", "2017-06-03 03:48:04.564772"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.566829"], ["updated_at", "2017-06-03 03:48:04.566829"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "wikis"
+Processing by WikisController#create as HTML
+  Parameters: {"wiki"=>{"title"=>"MyString", "body"=>"MyText", "private"=>false, "user"=>nil}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+Unpermitted parameter: user
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "MyString"], ["body", "MyText"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.580562"], ["updated_at", "2017-06-03 03:48:04.580562"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis/4
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$Mg38COFAjYkJ/ybmSrDqBO.Ty.QIbsaJUILYALkcnGLBovO.pcPYu"], ["role", 0], ["created_at", "2017-06-03 03:48:04.590080"], ["updated_at", "2017-06-03 03:48:04.590080"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.592253"], ["updated_at", "2017-06-03 03:48:04.592253"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$wx99hvnemdXV5OBk0tOJ6udYYnyTwP8NwcK0rOOEVQloD.3UH36gm"], ["role", 1], ["created_at", "2017-06-03 03:48:04.596147"], ["updated_at", "2017-06-03 03:48:04.596147"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.597862"], ["updated_at", "2017-06-03 03:48:04.597862"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$htkeMqUCnEm2YYxEjwBTH./c7r.8lHoQOnsdm3wKfS2kzlqLMtQvq"], ["role", 2], ["created_at", "2017-06-03 03:48:04.603130"], ["updated_at", "2017-06-03 03:48:04.603130"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.605756"], ["updated_at", "2017-06-03 03:48:04.605756"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis"  ORDER BY "wikis"."id" ASC LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$PbPcPf1KOud8sGNr2cME7OiOyi841rYW3iQK3VnA9MLYu309.pTUG"], ["role", 0], ["created_at", "2017-06-03 03:48:04.612442"], ["updated_at", "2017-06-03 03:48:04.612442"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.614364"], ["updated_at", "2017-06-03 03:48:04.614364"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$5FryJvyh.HkdZn8Bx0m5v.5R9bxPM93dmme/pPSz3qCEB8U31kDuy"], ["role", 1], ["created_at", "2017-06-03 03:48:04.619099"], ["updated_at", "2017-06-03 03:48:04.619099"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.622136"], ["updated_at", "2017-06-03 03:48:04.622136"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$4xUYWfazp3YwSZZoR1Eaz.5nr690m8t5nXZVTEXgVQrbnRGQQv/jO"], ["role", 2], ["created_at", "2017-06-03 03:48:04.628074"], ["updated_at", "2017-06-03 03:48:04.628074"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.629855"], ["updated_at", "2017-06-03 03:48:04.629855"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis"  ORDER BY "wikis"."id" ASC LIMIT 1 OFFSET 1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$oUIKAebpLtPqbnjfH0mFJOz27QYsQq.bZUOF82ehKk/PyPo5Nux.K"], ["role", 0], ["created_at", "2017-06-03 03:48:04.637785"], ["updated_at", "2017-06-03 03:48:04.637785"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.640636"], ["updated_at", "2017-06-03 03:48:04.640636"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$jOP83B3wZn8SXZEIH1l6..5U7d/WwH9O2JQrTpvbzz8.nJ8yMqCu2"], ["role", 1], ["created_at", "2017-06-03 03:48:04.647163"], ["updated_at", "2017-06-03 03:48:04.647163"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.648985"], ["updated_at", "2017-06-03 03:48:04.648985"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$TIHzD5doxRxnhV0tMIidleuiQ3brEgtXDylNnxBitHlhYHGcs8BXa"], ["role", 2], ["created_at", "2017-06-03 03:48:04.653293"], ["updated_at", "2017-06-03 03:48:04.653293"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.655006"], ["updated_at", "2017-06-03 03:48:04.655006"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis"  ORDER BY "wikis"."id" DESC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$KkH6vHmWPEXzbRKh553q6.ILVXzp/Al42Fsx48KrIAMILjEoNg1ni"], ["role", 0], ["created_at", "2017-06-03 03:48:04.662541"], ["updated_at", "2017-06-03 03:48:04.662541"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.664439"], ["updated_at", "2017-06-03 03:48:04.664439"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$GFqzkifbiQb9ysOvwKdowOAa6JWmaXoDt33Kl/GiWznhwfWs2.OSm"], ["role", 1], ["created_at", "2017-06-03 03:48:04.669173"], ["updated_at", "2017-06-03 03:48:04.669173"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.671966"], ["updated_at", "2017-06-03 03:48:04.671966"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$Fxe6/0uf2YyGjJBgaiHtiurIo0/m3B7T745/qBYMtYG7.32iUENim"], ["role", 2], ["created_at", "2017-06-03 03:48:04.675783"], ["updated_at", "2017-06-03 03:48:04.675783"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.677238"], ["updated_at", "2017-06-03 03:48:04.677238"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$avtfhdjnQz.VezqNuTk2iObuuEH.zgrHNJO.c8T.7Ttc7/71lWVdq"], ["role", 0], ["created_at", "2017-06-03 03:48:04.684234"], ["updated_at", "2017-06-03 03:48:04.684234"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.687636"], ["updated_at", "2017-06-03 03:48:04.687636"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$N/Ed49PC38lkJKpKvswc4ekaWjzn2BEWOOw/Q2UfZL823iydiaKB."], ["role", 1], ["created_at", "2017-06-03 03:48:04.691654"], ["updated_at", "2017-06-03 03:48:04.691654"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.693522"], ["updated_at", "2017-06-03 03:48:04.693522"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$AbpLz1bpIxTUvTON/IY1juvULJRFrYEYAede1z5XiW4POQ.XNahTy"], ["role", 2], ["created_at", "2017-06-03 03:48:04.698790"], ["updated_at", "2017-06-03 03:48:04.698790"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.701470"], ["updated_at", "2017-06-03 03:48:04.701470"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$5PRfqhmmlTBv/0NRqvyHc.ltKVuWKicv6H6POOHbyErMmJ3Mb9ffy"], ["role", 0], ["created_at", "2017-06-03 03:48:04.708590"], ["updated_at", "2017-06-03 03:48:04.708590"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.710598"], ["updated_at", "2017-06-03 03:48:04.710598"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$tkXh.BXqxGRoJYYMRSU.3esZYFHRCHyLkovSDQfal05KeraW43T1m"], ["role", 1], ["created_at", "2017-06-03 03:48:04.714890"], ["updated_at", "2017-06-03 03:48:04.714890"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.717329"], ["updated_at", "2017-06-03 03:48:04.717329"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$GHLtftY4joK.qFTfuYb2Sez3Uc9ATWWzesDK7LG49M..uPjg45Jgm"], ["role", 2], ["created_at", "2017-06-03 03:48:04.722861"], ["updated_at", "2017-06-03 03:48:04.722861"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.724594"], ["updated_at", "2017-06-03 03:48:04.724594"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by WikisController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered wikis/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$dscNeJcDVxmPkPQs5d8WV.nLGdfyTryxf9gcAO2VFg9qszmF2ishq"], ["role", 0], ["created_at", "2017-06-03 03:48:04.737716"], ["updated_at", "2017-06-03 03:48:04.737716"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.740781"], ["updated_at", "2017-06-03 03:48:04.740781"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$De7boI4Ve6cBauRCKjZJruWEGrX4k.jRMS1PXNn8TeFtzEl3OCZuu"], ["role", 1], ["created_at", "2017-06-03 03:48:04.745061"], ["updated_at", "2017-06-03 03:48:04.745061"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.747003"], ["updated_at", "2017-06-03 03:48:04.747003"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$x64nC9qMAWr1EaQ5f1HmdupuX4zWIl7c5kANd4doWt/s1.hhdyui6"], ["role", 2], ["created_at", "2017-06-03 03:48:04.750966"], ["updated_at", "2017-06-03 03:48:04.750966"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.754144"], ["updated_at", "2017-06-03 03:48:04.754144"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+Processing by WikisController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 3]]
+  [1m[35mWiki Load (0.1ms)[0m  SELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "wikis" WHERE "wikis"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/wikis
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "wikis"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'standard@bloc.io' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "standard@bloc.io"], ["encrypted_password", "$2a$04$O49g0WqNMzJpnYJr.fS6BeahICs9kW2m1hWS2rlbr9ZELNHsmpCmW"], ["role", 0], ["created_at", "2017-06-03 03:48:04.766510"], ["updated_at", "2017-06-03 03:48:04.766510"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "title"], ["body", "body"], ["private", "f"], ["user_id", 1], ["created_at", "2017-06-03 03:48:04.769524"], ["updated_at", "2017-06-03 03:48:04.769524"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'premium@bloc.io' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["email", "premium@bloc.io"], ["encrypted_password", "$2a$04$hjlAT19zCaUhO0ARuHbumu41LuTYwzYW9YzVdDk4BN5YPV3bY7TN."], ["role", 1], ["created_at", "2017-06-03 03:48:04.774508"], ["updated_at", "2017-06-03 03:48:04.774508"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "premium title"], ["body", "premium body"], ["private", "t"], ["user_id", 2], ["created_at", "2017-06-03 03:48:04.777933"], ["updated_at", "2017-06-03 03:48:04.777933"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@bloc.io' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "role", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "admin@bloc.io"], ["encrypted_password", "$2a$04$bg4XNj0l7wICqj8tnX1xBucs6Q.n7uCM72PmH62ChzCjiTOUxI1v2"], ["role", 2], ["created_at", "2017-06-03 03:48:04.782931"], ["updated_at", "2017-06-03 03:48:04.782931"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "wikis" ("title", "body", "private", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "admin title"], ["body", "admin body"], ["private", "f"], ["user_id", 3], ["created_at", "2017-06-03 03:48:04.784871"], ["updated_at", "2017-06-03 03:48:04.784871"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "wikis"
+Processing by WikisController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWiki Load (0.1ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  [1m[36mWiki Load (0.0ms)[0m  [1mSELECT  "wikis".* FROM "wikis" WHERE "wikis"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "wikis" WHERE "wikis"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/wikis
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "wikis"[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
