@@ -17,7 +17,7 @@
     <% @wikis.each do |wiki| %>
       <tr>
         <td><%= wiki.title %></td>
-        <td><%= wiki.body %></td>
+        <td><%= markdown(wiki.body) %></td>
         <td><%= wiki.private %></td>
         <td><%= wiki.user %></td>
         <td><%= link_to 'Show', wiki %></td>

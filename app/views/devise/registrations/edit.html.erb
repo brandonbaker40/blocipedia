@@ -36,9 +36,10 @@
   </div>
 <% end %>
 
+<% if current_user.admin? || current_user.premium? %>
 <h3>Downgrade</h3>
 <%= button_to "Downgrade To Standard", user_downgrade_path(current_user), data: { confirm: "Your private wikis will now be made public." }, method: :post %>
-
+<% end %>
 
 <h3>Cancel my account</h3>
 
