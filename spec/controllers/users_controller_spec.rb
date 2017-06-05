@@ -70,4 +70,13 @@ end
     end
   end
 
+  describe "downgrade from premium to standard" do
+  	login_premium_user
+
+  	it "should change the role from premium to standard" do
+  		post :downgrade
+  		expect(subject.current_user.role).to eq('standard')
+  	end
+  end
+
 end

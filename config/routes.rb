@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index] do
       post 'downgrade' => 'users#downgrade', as: :downgrade
   end
+  devise_scope :user do
+    post 'downgrade' => 'users#downgrade', as: :downgrade
+  end
   resources :charges, only: [:new, :create]
 
 
