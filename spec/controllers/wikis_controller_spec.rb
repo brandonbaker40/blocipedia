@@ -20,15 +20,11 @@ RSpec.describe WikisController, type: :controller do
     sign_in @user
     @wiki  = Wiki.create!(title: 'title', body: 'body', private: false, user: @user)
 
-    ####
     @premium_user = User.create!(email: 'premium@bloc.io', password: 'premium 1234', role: 1)
-    sign_in @premium_user
     @premium_wiki = Wiki.create!(title: 'premium title', body: 'premium body', private: true, user: @premium_user)
 
     @admin_user = User.create!(email: 'admin@bloc.io', password: 'admin 1234', role: 2)
-    sign_in @admin_user
     @admin_wiki = Wiki.create!(title: 'admin title', body: 'admin body', private: false, user: @admin_user)
-    ###
 
   end
 
@@ -121,7 +117,6 @@ RSpec.describe WikisController, type: :controller do
     end
 
     it "should NOT delete the wiki" do
-      ##### this is failing, could be something wrong in my controller
       expect { delete :destroy, id: @premium_wiki.id }.to_not change(Wiki, :count)
       expect(flash[:alert]).to_not be_nil
     end
