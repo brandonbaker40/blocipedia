@@ -1,17 +1,7 @@
-<%= form_for(@collaborator) do |f| %>
-  <% if @collaborator.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@collaborator.errors.count, "error") %> prohibited this collaborator from being saved:</h2>
-
-      <ul>
-      <% @collaborator.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <% if current_user.admin? || current_user.premium? %>
+    <h3>Add Collaborators</h3>
+    <%= form_for [wiki, Collaborator.new] do |c| %>
+    <%= c.collection_select :user_id, User.all, :id, :email, prompt: true %>
+      <%= c.submit "Add collaborator", class: 'btn btn-primary' %>
+    <% end %>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

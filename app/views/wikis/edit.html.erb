@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
+<%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
+
 <%= link_to 'Show', @wiki %> |
 <%= link_to 'Back', wikis_path %>

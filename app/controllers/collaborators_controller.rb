@@ -21,13 +21,17 @@ class CollaboratorsController < ApplicationController
 
   # POST /collaborators
   def create
-    @collaborator = Collaborator.new(collaborator_params)
+  wiki = Wiki.find(params[:wiki_id])
+  collaborator = wiki.collaborators.build(user_id: params[:collaborator][:user_id])
+  #binding.pry
 
-    if @collaborator.save
-      redirect_to @collaborator, notice: 'Collaborator was successfully created.'
-    else
-      render :new
-    end
+  if collaborator.save
+  	flash[:notice] = "#{wiki.collaborators.last} is now a collaborator on your wiki."
+  else
+  	flash[:alert] = "Collaborator failed."
+  end
+
+	redirect_to wikis_path
   end
 
   # PATCH/PUT /collaborators/1
@@ -53,6 +57,7 @@ class CollaboratorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def collaborator_params
-      params[:collaborator]
+      #params[:collaborator]
+      params.require(:user_id, :wiki_id)
     end
 end

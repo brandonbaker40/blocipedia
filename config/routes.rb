@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :wikis
+  resources :wikis do
+    resources :collaborators, only: [:create, :destroy]
+  end
+
   devise_for :users
   resources :users, only: [:index] do
       post 'downgrade' => 'users#downgrade', as: :downgrade
@@ -8,7 +11,6 @@ Rails.application.routes.draw do
     post 'downgrade' => 'users#downgrade', as: :downgrade
   end
   resources :charges, only: [:new, :create]
-  resources :collaborators
 
 
   get 'welcome/index'
