@@ -21,17 +21,17 @@ class CollaboratorsController < ApplicationController
 
   # POST /collaborators
   def create
-  wiki = Wiki.find(params[:wiki_id])
-  collaborator = wiki.collaborators.build(user_id: params[:collaborator][:user_id])
-  #binding.pry
+    wiki = Wiki.find(params[:wiki_id])
+    collaborator = wiki.collaborators.build(user_id: params[:collaborator][:user_id])
+    #binding.pry
 
-  if collaborator.save
-  	flash[:notice] = "#{wiki.collaborators.last} is now a collaborator on your wiki."
-  else
-  	flash[:alert] = "Collaborator failed."
-  end
+    if collaborator.save
+    	flash[:notice] = "#{wiki.collaborators.last} is now a collaborator on your wiki."
+    else
+    	flash[:alert] = "Collaborator failed."
+    end
 
-	redirect_to wikis_path
+  	redirect_to wikis_path
   end
 
   # PATCH/PUT /collaborators/1
@@ -45,8 +45,17 @@ class CollaboratorsController < ApplicationController
 
   # DELETE /collaborators/1
   def destroy
-    @collaborator.destroy
-    redirect_to collaborators_url, notice: 'Collaborator was successfully destroyed.'
+    wiki = Wiki.find(params[:wiki_id])
+    #collaborator = wiki.collaborators.build(user_id: params[:collaborator][:user_id])
+    collaborator = Collaborator.find(params[:user_id])
+
+    if collaborator.destroy
+    	flash[:notice] = "Collaborator was successfully removed."
+    else
+    	flash[:alert] = "Collaborator was NOT removed."
+    end
+
+  	redirect_to wikis_path
   end
 
   private
@@ -57,7 +66,7 @@ class CollaboratorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def collaborator_params
-      #params[:collaborator]
-      params.require(:user_id, :wiki_id)
+      params[:collaborator]
+      #params.require(:user_id, :wiki_id)
     end
 end

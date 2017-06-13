@@ -4,5 +4,15 @@
 
 <%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
 
+<h2>Collaborators</h2>
+    <% @wiki.collaborators.each do |collaborator| %>
+      <p>
+        <%= collaborator.user_id %>
+        <%= link_to "Remove", @collaborator, :method => :delete %>
+      </p>
+<% end %>
+
+
+
 <%= link_to 'Show', @wiki %> |
 <%= link_to 'Back', wikis_path %>
