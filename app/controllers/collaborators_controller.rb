@@ -7,13 +7,21 @@ class CollaboratorsController < ApplicationController
     collaborator = wiki.collaborators.build(user_id: params[:collaborator][:user_id])
     #binding.pry
 
-    if collaborator.save
-    	flash[:notice] = "#{wiki.collaborators.last} is now a collaborator on your wiki."
+    # if collaborator.save
+    # 	flash[:notice] = "#{collaborator.user.email} is now a collaborator on your wiki."
+    # else
+    # 	flash[:alert] = "Collaborator failed."
+    # end
+
+    if wiki.collaborators.exists?(user_id: params[:collaborator][:user_id])
+      flash[:alert] = "Collaborator already added."
+    elsif collaborator.save
+      flash[:notice] = "#{collaborator.user.email} is now a collaborator on your wiki."
     else
-    	flash[:alert] = "Collaborator failed."
+      flash[:alert] = "Collaborator failed."
     end
 
-  	redirect_to wikis_path
+  	redirect_to edit_wiki_path(wiki)
   end
 
   # DELETE /collaborators/1
@@ -27,7 +35,7 @@ class CollaboratorsController < ApplicationController
     	flash[:alert] = "Collaborator was NOT removed."
     end
 
-  	redirect_to wikis_path
+  	redirect_to edit_wiki_path(@wiki)
   end
 
   private

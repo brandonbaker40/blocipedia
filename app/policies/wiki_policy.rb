@@ -7,8 +7,12 @@ class WikiPolicy < ApplicationPolicy
   #   @wiki = wiki
   # end
 
+  def show?
+    (record.private == false) || user.admin? || user.id == record.user_id || record.collaborators.exists?(user_id: user.id)
+  end
+
   def update?
-    user.admin? || user.id == record.user_id
+    user.admin? || user.id == record.user_id || record.collaborators.exists?(user_id: user.id)
   end
 
   def destroy?

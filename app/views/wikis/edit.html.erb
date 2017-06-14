@@ -7,7 +7,7 @@
 <h2>Collaborators</h2>
     <% @wiki.collaborators.each do |collaborator| %>
       <p>
-        <%= collaborator.user_id %>
+        <%= collaborator.user.email %>
         <%= link_to "Remove", wiki_collaborator_path(@wiki, collaborator), :method => :delete %>
       </p>
       <% end %>
