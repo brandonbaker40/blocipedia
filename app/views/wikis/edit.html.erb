@@ -8,9 +8,9 @@
     <% @wiki.collaborators.each do |collaborator| %>
       <p>
         <%= collaborator.user_id %>
-        <%= link_to "Remove", @collaborator, :method => :delete %>
+        <%= link_to "Remove", wiki_collaborator_path(@wiki, collaborator), :method => :delete %>
       </p>
-<% end %>
+      <% end %>
 
 
 
